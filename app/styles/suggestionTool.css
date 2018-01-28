@@ -1,0 +1,33 @@
+.suggestionTool {
+    display: none;
+    position: absolute;
+    height: auto;
+    margin-top: 1px;
+    z-index: 1000;
+    background-color: white;
+    -webkit-box-shadow: 0 2px 2px 2px rgba(117, 117, 117, 0.3);
+    -moz-box-shadow: 0 2px 2px 2px rgba(117, 117, 117, 0.3);
+    box-shadow: 0 2px 2px 2px rgba(117, 117, 117, 0.3);
+}
+.suggestionTool > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.suggestionTool > ul > li {
+    display: block;
+    width: 100%;
+    padding: 6px 0 6px 10px;
+    border-bottom: 1px solid #dddddd;
+    font-size: 14px;
+    color: black;
+}
+.suggestionTool > ul > li:last-child {
+    border-bottom: 0;
+}
+.suggestionTool > ul > li:hover,
+.selected {
+    cursor: pointer;
+    background-color: rgb(83,134,132);
+    color: white;
+}

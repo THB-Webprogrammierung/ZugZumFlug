@@ -1,0 +1,23 @@
+{
+  "name": "zugzumflug",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Jens Bekersch <jens.bekersch@googlemail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "popper.js": "^1.12.6",
+    "bootstrap": "4.0.0-beta",
+    "open-iconic": "https://github.com/iconic/open-iconic.git#^1.1.1"
+  }
+}

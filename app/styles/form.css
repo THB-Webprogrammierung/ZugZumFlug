@@ -1,0 +1,125 @@
+fieldset {
+    font-weight: 300;
+}
+
+#kacheln {
+    margin: 0;
+}
+
+.no-border {
+    border: none;
+    border-radius: 0;
+}
+ .destination {
+     background-color: lightslategrey;
+     color: white;
+     padding: 15px 0 15px 0;
+     font-weight: 300;
+ }
+
+ #startStreet,#airport,#startDate,#startTime {
+     font-weight: 300;
+     color: #000000;
+ }
+
+ .date {
+     background-color: darkgrey;
+     padding: 15px 0 20px 0;
+ }
+
+ .checkboxes {
+     background-color: #f5c6cb;
+     padding: 15px 0 15px 0;
+ }
+
+ .form-check {
+     padding: 10px 0  0 30px;
+ }
+
+ select {
+     border-radius: 0;
+     font-weight: 300;
+ }
+
+#form-submit {
+    background-color: #e9ecef;
+    color: lightslategrey;
+    font-size: 120%;
+    margin-bottom: 16px;
+    border-radius: 0;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    padding-top: 20px;
+
+}
+
+#form-submit:hover {
+    background-color: rgb(83,134,132);
+    color: white;
+ }
+
+#logoSub {
+    align-items:center;
+    margin-top: 10px;
+    display: none;
+}
+
+.invalid-feedback-box {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.tooltip-div {
+    padding-left: 10px;
+    margin-right: 30px;
+}
+
+.check-label {
+    padding-left: 6px;
+}
+
+.glyphicon-info-sign {
+    font-size: 0.8em;
+    margin-left: 5px;
+    opacity: 0.9;
+}
+
+.check-label:hover, .form-check-input:hover {
+    cursor: pointer;
+}
+
+#checkLabel {
+    padding-left: 20px;
+}
+
+@media only screen and (min-width : 320px) and (max-width: 768px) {
+    .ueber {
+        font-size: 130%;
+    }
+}
+
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+    .ueber {
+        font-size: 140%;
+    }
+}
+
+#dateError::before {
+    margin-bottom: 5px;
+}
+
+.pac-container {
+    background-color: white;
+}
+
+.pac-item:hover {
+    cursor: pointer;
+    background-color: rgb(83,134,132);
+    color: white;
+}
+
+.pac-item:hover .pac-item-query {
+    cursor: pointer;
+    background-color: rgb(83,134,132);
+    color: white;
+}

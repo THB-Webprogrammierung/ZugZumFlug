@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Zug zum Flug</title>
+    <meta name="description" content="Immer pünktlich am Ziel: Berechnen Sie hier die passende Zugverbindung zum Flug">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500');
+    </style>
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap-datepicker3.css">
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/connections.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/suggestionTool.css">
+    <!-- endbuild -->
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container d-flex justify-content-between">
+                <a class="navbar-brand" href="index.html">
+                    <img src="styles/logo.png" alt="ZZF-Logo" id="logo" class="d-inline-block align-top img-fluid">
+                    ZUG ZUM FLUG
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <div class="container">
+            <h2 class="ueber">SUCHE</h2>
+            <form id="getTrainConnectionForm" onsubmit="return false;" autocomplete="off" novalidate>
+                <fieldset>
+                    <div class="form-row" id="kacheln">
+                        <div class="form-group col-xs-12 col-md-6 col-lg-4 destination">
+                            <div class="form-group col-12">
+                                <label for="startStreet">START</label>
+                                <input type="text" id="startStreet"  name="startStreet" class="form-control no-border" placeholder="z.B. Berlin, Blumenstraße" required>
+                                <div id="startStreetErr" class="invalid-feedback-box"></div>
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="airport"> ZIEL</label>
+                                <input type="text" id="airport" name="airport" class="form-control no-border airport" placeholder="z.B. Berlin-Tegel" required>
+                                <div class="invalid-feedback-box"></div>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12 col-md-4 col-lg-3 date">
+                            <div class="form-group col-9" >
+                                <label for="startDate">DATUM</label>
+                                <input type="input" id="startDate" name="startDate" class="form-control no-border datepicker" required>
+                                <div class="invalid-feedback-box" id="dateError"></div>
+                            </div>
+                            <div class="form-group col-9">
+                                <label for="startTime">UHRZEIT ABFLUG</label>
+                                <input type="input" id="startTime" name="startTime" class="form-control no-border bootstrap-timepicker-widget" required>
+                                <div class="invalid-feedback-box"></div>
+                            </div>
+                            <div class="form-group col-9">
+                                <label for="timeDistance">ANKUNFT (vor Abflug)</label>
+                                <select id="timeDistance" name="timeDiff" class="form-control no-border custom-select">
+                                    <option value="30">0,5 Std.</option>
+                                    <option value="60" selected>1,0 Std.</option>
+                                    <option value="90">1,5 Std.</option>
+                                    <option value="120">2,0 Std.</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12 col-md-4 col-lg-2 checkboxes">
+                            <span id="checkLabel">OPTIONEN</span>
+                            <div class="form-check">
+                                <div class="tooltip-div" data-toggle="tooltip" data-placement="right" title="30 min früher">
+                                    <input class="form-check-input" type="checkbox" id="luggage" name="luggage">
+                                    <label class="form-check-label check-label" for="luggage">
+                                        Gepäck<span class="glyphicon glyphicon-info-sign"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <div class="tooltip-div" data-toggle="tooltip" data-placement="right" title="30 min später">
+                                    <input class="form-check-input" type="checkbox" id="fastTrack" name="fastTrack">
+                                    <label class="form-check-label check-label" for="fastTrack">
+                                        FastTrack<span class="glyphicon glyphicon-info-sign"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <div class="tooltip-div" data-toggle="tooltip" data-placement="right" title="60 min früher">
+                                    <input class="form-check-input" type="checkbox" id="holidays" name="holidays">
+                                    <label class="form-check-label check-label" for="holidays">
+                                        Ferienzeit<span class="glyphicon glyphicon-info-sign"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn col-xs-12 col-md-4 col-lg-3" id="form-submit">
+                            <span id="labelSub">LOS GEHT'S</span>
+                            <p><img src="styles/logo.png" width="140" alt="ZZF-Logo" id="logoSub"></p>
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="row" id="placeConnectionContent"></div>
+        </div>
+    </main>
+    <footer id="foo">
+        &copy; 2018 Jens Bekersch, Ines Güssow, Maximilian Heiden
+    </footer>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXoZkyatowJYla43BWWhYA7Up5129ETD0&libraries=places"></script>
+    <!-- build:js scripts/app.js -->
+    <script type="text/javascript" src="../lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/popper.js/dist/umd/popper.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/suggestionTool.js"></script>
+    <script type="text/javascript" src="scripts/googleGetSuggestions.js"></script>
+    <script type="text/javascript" src="scripts/validate.js"></script>
+    <script type="text/javascript" src="scripts/searchAndReplace.js"></script>
+    <script type="text/javascript" src="scripts/htmlHelper.js"></script>
+    <script type="text/javascript" src="scripts/googleGetConnectionData.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="locales/bootstrap-datepicker.de.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-timepicker.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

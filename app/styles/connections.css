@@ -1,0 +1,54 @@
+h2 {
+    padding-top: 15px;
+    color: rgb(83,134,132);
+    font-weight: 200;
+}
+
+.connectionDetailHeader {
+    background-color: lightslategrey;
+    color: white;
+    padding: 15px;
+    border-radius: 0;
+    font-weight: 300;
+}
+.connectionFooter {
+    min-height: 30px;
+    padding: 7px;
+    margin-bottom: 15px;
+}
+.showConnection {
+    margin-bottom: 25px;
+}
+
+.connectionDetailsContent {
+    font-weight: 300;
+}
+
+.btn-secondary {
+    background-color: #e9ecef;
+    color: lightslategrey;
+    border: none;
+    border-radius: 0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(83,134,132);
+    color: white;
+}
+
+.glyphicon-map-marker {
+    margin: 4px 2px 0 0;
+}
+
+.glyphicon-print {
+    margin: 4px 3px 0 3px;
+}
+
+@media print {
+    form,.ueber {
+        display: none;
+    }
+}
